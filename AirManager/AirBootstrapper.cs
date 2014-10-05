@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 using Microsoft.Practices.Prism.MefExtensions;
+using Microsoft.Practices.Prism.Modularity;
 
 namespace AirManager
 {
@@ -23,6 +24,11 @@ namespace AirManager
             base.ConfigureAggregateCatalog();
 
             AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (AirBootstrapper).Assembly));
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new ConfigurationModuleCatalog();
         }
     }
 }
