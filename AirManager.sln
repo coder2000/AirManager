@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Db", "AirManager
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Menus", "AirManager.Menus\AirManager.Menus.csproj", "{72B8B962-EA68-4645-9D1A-8E24CC1399A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Common", "AirManager.Common\AirManager.Common.csproj", "{D6074F29-A044-43C0-8D27-34EC5A54D7A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{72B8B962-EA68-4645-9D1A-8E24CC1399A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B8B962-EA68-4645-9D1A-8E24CC1399A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B8B962-EA68-4645-9D1A-8E24CC1399A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

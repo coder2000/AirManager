@@ -137,6 +137,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirManager.Common\AirManager.Common.csproj">
+      <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
+      <Name>AirManager.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirManager.Db\AirManager.Db.csproj">
       <Project>{9b02e5e8-c789-4b2b-9510-458ceb415984}</Project>
       <Name>AirManager.Db</Name>

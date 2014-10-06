@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using AirManager.Common;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 
@@ -8,7 +9,7 @@ namespace AirManager
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
     [Export]
-    public partial class MainWindow
+    public partial class MainWindow : IPartImportsSatisfiedNotification
     {
         [Import(AllowRecomposition = false)] public IModuleManager ModuleManager;
 
@@ -25,7 +26,7 @@ namespace AirManager
                 {
                     if (e.ModuleInfo.ModuleName == "MenuModule")
                     {
-                        RegionManager.RequestNavigate("MainRegion", "/MainMenu");
+                        RegionManager.RequestNavigate(RegionNames.MainRegion, "/MainMenu");
                     }
                 };
         }
