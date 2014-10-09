@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Composition;
-using AirManager.Common;
+using AirManager.Infrastructure;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 

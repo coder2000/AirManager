@@ -1,4 +1,4 @@
-﻿namespace AirManager.Common
+﻿namespace AirManager.Infrastructure
 {
     public static class RegionNames
     {

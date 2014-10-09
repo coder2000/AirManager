@@ -58,6 +58,15 @@
     <Reference Include="EntityFramework.SqlServerCompact">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.1\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>..\packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Composition">
       <HintPath>..\packages\Prism.Composition.5.0.0\lib\NET45\Microsoft.Practices.Prism.Composition.dll</HintPath>
     </Reference>
@@ -117,6 +126,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="AirBootstrapper.cs" />
+    <Compile Include="AirLoggerAdapter.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -155,9 +165,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AirManager.Common\AirManager.Common.csproj">
+    <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
       <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
-      <Name>AirManager.Common</Name>
+      <Name>AirManager.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\AirManager.Db\AirManager.Db.csproj">
       <Project>{9b02e5e8-c789-4b2b-9510-458ceb415984}</Project>

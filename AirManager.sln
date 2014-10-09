@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Db", "AirManager
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Menus", "AirManager.Menus\AirManager.Menus.csproj", "{72B8B962-EA68-4645-9D1A-8E24CC1399A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Common", "AirManager.Common\AirManager.Common.csproj", "{D6074F29-A044-43C0-8D27-34EC5A54D7A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Infrastructure", "AirManager.Common\AirManager.Infrastructure.csproj", "{D6074F29-A044-43C0-8D27-34EC5A54D7A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

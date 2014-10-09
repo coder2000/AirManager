@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition.Hosting;
 using System.Windows;
+using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions;
 using Microsoft.Practices.Prism.Modularity;
 
@@ -7,6 +8,8 @@ namespace AirManager
 {
     public class AirBootstrapper : MefBootstrapper
     {
+        private readonly AirLoggerAdapter _logger = new AirLoggerAdapter();
+
         protected override DependencyObject CreateShell()
         {
             return Container.GetExportedValue<MainWindow>();
@@ -29,6 +32,11 @@ namespace AirManager
         protected override IModuleCatalog CreateModuleCatalog()
         {
             return new ConfigurationModuleCatalog();
+        }
+
+        protected override ILoggerFacade CreateLogger()
+        {
+            return _logger;
         }
     }
 }
