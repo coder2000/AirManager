@@ -7,7 +7,9 @@ namespace AirManager
     {
         public AirLoggerAdapter()
         {
-            Logger.SetLogWriter(new LogWriter(new LoggingConfiguration()));
+            var factory = new LogWriterFactory();
+            LogWriter writer = factory.Create();
+            Logger.SetLogWriter(writer);
         }
 
         public void Log(string message, Category category, Priority priority)

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using AirManager.Infrastructure;
+using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 
@@ -15,7 +16,8 @@ namespace AirManager
 
         [Import(AllowRecomposition = false)] public IRegionManager RegionManager;
 
-        public MainWindow()
+        [ImportingConstructor]
+        public MainWindow(ILoggerFacade logger)
         {
             InitializeComponent();
         }
