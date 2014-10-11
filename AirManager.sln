@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager", "AirManager\AirManager.csproj", "{F869FA29-129E-49ED-A42B-99A33DE21123}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Db", "AirManager.Db\AirManager.Db.csproj", "{9B02E5E8-C789-4B2B-9510-458CEB415984}"
@@ -8,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Menus", "AirManager.Menus\AirManager.Menus.csproj", "{72B8B962-EA68-4645-9D1A-8E24CC1399A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Infrastructure", "AirManager.Common\AirManager.Infrastructure.csproj", "{D6074F29-A044-43C0-8D27-34EC5A54D7A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Menus.Tests", "AirManager.Menus.Tests\AirManager.Menus.Tests.csproj", "{AD2F2362-AA13-47C5-8E6E-38A46F95C78A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6074F29-A044-43C0-8D27-34EC5A54D7A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2F2362-AA13-47C5-8E6E-38A46F95C78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2F2362-AA13-47C5-8E6E-38A46F95C78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2F2362-AA13-47C5-8E6E-38A46F95C78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2F2362-AA13-47C5-8E6E-38A46F95C78A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
