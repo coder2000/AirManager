@@ -1,4 +1,5 @@
 ﻿using AirManager.Menus.ViewModels;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 using Moq;
 using Xunit;
@@ -11,7 +12,8 @@ namespace AirManager.Menus.Tests.ViewModels
         public void CanInitViewModel()
         {
             var regionManager = new Mock<IRegionManager>();
-            var viewModel = new MainMenuViewModel(regionManager.Object);
+            var eventAggregator = new Mock<IEventAggregator>();
+            var viewModel = new MainMenuViewModel(regionManager.Object, eventAggregator.Object);
 
             Assert.NotNull(viewModel);
         }

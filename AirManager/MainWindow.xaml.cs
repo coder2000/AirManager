@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.Composition;
 using AirManager.Infrastructure;
-using Microsoft.Practices.Prism.Logging;
+using AirManager.Infrastructure.Events;
 using Microsoft.Practices.Prism.Modularity;
+using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 
 namespace AirManager
@@ -17,20 +18,26 @@ namespace AirManager
         [Import(AllowRecomposition = false)] public IRegionManager RegionManager;
 
         [ImportingConstructor]
-        public MainWindow(ILoggerFacade logger)
+        public MainWindow(IEventAggregator eventAggregator)
         {
             InitializeComponent();
+            eventAggregator.GetEvent<ExitGameEvent>().Subscribe(ExitGame);
         }
 
         public void OnImportsSatisfied()
         {
             ModuleManager.LoadModuleCompleted += (s, e) =>
+            {
+                if (e.ModuleInfo.ModuleName == "MenuModule")
                 {
-                    if (e.ModuleInfo.ModuleName == "MenuModule")
-                    {
-                        RegionManager.RequestNavigate(RegionNames.MainRegion, "/MainMenu");
-                    }
-                };
+                    RegionManager.RequestNavigate(RegionNames.MainRegion, "/MainMenu");
+                }
+            };
+        }
+
+        private void ExitGame(object obj)
+        {
+            Close();
         }
     }
 }

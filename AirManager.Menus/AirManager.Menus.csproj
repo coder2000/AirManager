@@ -103,6 +103,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
+      <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
+      <Name>AirManager.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
