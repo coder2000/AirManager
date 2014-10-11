@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.1\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
@@ -65,7 +74,18 @@
       <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8854.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8854.1\lib\net40\System.Data.SqlServerCe.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,15 +96,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airline.cs">
+      <DependentUpon>AirManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AirManager.Context.cs">
+      <DependentUpon>AirManager.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="AirManager.cs">
+      <DependentUpon>AirManager.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="AirManager.Designer.cs">
+      <DependentUpon>AirManager.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>AirManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="Events\ExitGameEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionNames.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="AirManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AirManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AirManager.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AirManager.edmx</DependentUpon>
+      <LastGenOutput>AirManager.Context.cs</LastGenOutput>
+    </None>
+    <None Include="AirManager.edmx.diagram">
+      <DependentUpon>AirManager.edmx</DependentUpon>
+    </None>
+    <None Include="AirManager.edmx.sqlce" />
+    <None Include="AirManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AirManager.edmx</DependentUpon>
+      <LastGenOutput>AirManager.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8854.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8854.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

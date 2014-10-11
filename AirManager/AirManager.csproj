@@ -166,10 +166,6 @@
       <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
       <Name>AirManager.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AirManager.Db\AirManager.Db.csproj">
-      <Project>{9b02e5e8-c789-4b2b-9510-458ceb415984}</Project>
-      <Name>AirManager.Db</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AirManager.Menus\AirManager.Menus.csproj">
       <Project>{72b8b962-ea68-4645-9d1a-8e24cc1399a2}</Project>
       <Name>AirManager.Menus</Name>
