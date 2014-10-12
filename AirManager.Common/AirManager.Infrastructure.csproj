@@ -74,6 +74,7 @@
       <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -93,64 +94,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airline.cs">
-      <DependentUpon>AirManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AirManager.Context.cs">
-      <DependentUpon>AirManager.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="AirManager.cs">
-      <DependentUpon>AirManager.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="AirManager.Designer.cs">
-      <DependentUpon>AirManager.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="City.cs">
-      <DependentUpon>AirManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Country.cs">
-      <DependentUpon>AirManager.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AirManagerContext.cs" />
     <Compile Include="Events\ExitGameEvent.cs" />
+    <Compile Include="Migrations\201410121915005_AddPlayer.cs" />
+    <Compile Include="Migrations\201410121915005_AddPlayer.Designer.cs">
+      <DependentUpon>201410121915005_AddPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Airline.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionNames.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AirManager.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AirManager.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
-    </EntityDeploy>
-    <None Include="AirManager.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AirManager.edmx</DependentUpon>
-      <LastGenOutput>AirManager.Context.cs</LastGenOutput>
-      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
-    </None>
-    <None Include="AirManager.edmx.diagram">
-      <DependentUpon>AirManager.edmx</DependentUpon>
-    </None>
-    <None Include="AirManager.edmx.sqlce" />
-    <None Include="AirManager.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AirManager.edmx</DependentUpon>
-      <LastGenOutput>AirManager.cs</LastGenOutput>
-      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
-    </None>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AirManager.edmx.sql" />
+    <EmbeddedResource Include="Migrations\201410121915005_AddPlayer.resx">
+      <DependentUpon>201410121915005_AddPlayer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
