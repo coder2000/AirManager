@@ -1,4 +1,5 @@
 using System.Data.Entity.Migrations;
+using EntityFramework.Seeder;
 
 namespace AirManager.Infrastructure.Migrations
 {
@@ -23,6 +24,9 @@ namespace AirManager.Infrastructure.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            const string csv = "AirManager.Infrastructure.SeedData.country.csv";
+            context.Countries.SeedFromResource(csv, c => c.Id);
         }
     }
 }
