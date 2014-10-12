@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Input;
+using AirManager.Infrastructure;
 using AirManager.Infrastructure.Events;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
@@ -45,6 +46,7 @@ namespace AirManager.Menus.ViewModels
 
         private void NewGame(object ignored)
         {
+            _regionManager.RequestNavigate(RegionNames.MainRegion, "/NewAirlineView");
         }
 
         private void LoadGame(object ignored)

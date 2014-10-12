@@ -162,6 +162,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirManager.Airlines\AirManager.Airlines.csproj">
+      <Project>{c5d7e898-45ab-453e-b64b-5482783be899}</Project>
+      <Name>AirManager.Airlines</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
       <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
       <Name>AirManager.Infrastructure</Name>
