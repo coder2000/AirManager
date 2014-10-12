@@ -111,6 +111,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>AirManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="Country.cs">
       <DependentUpon>AirManager.tt</DependentUpon>
     </Compile>
@@ -122,11 +125,13 @@
     <EntityDeploy Include="AirManager.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AirManager.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
     </EntityDeploy>
     <None Include="AirManager.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AirManager.edmx</DependentUpon>
       <LastGenOutput>AirManager.Context.cs</LastGenOutput>
+      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
     </None>
     <None Include="AirManager.edmx.diagram">
       <DependentUpon>AirManager.edmx</DependentUpon>
@@ -136,11 +141,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AirManager.edmx</DependentUpon>
       <LastGenOutput>AirManager.cs</LastGenOutput>
+      <CustomToolNamespace>AirManager.Infrastructure</CustomToolNamespace>
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AirManager.edmx.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

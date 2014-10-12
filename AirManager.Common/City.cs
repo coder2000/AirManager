@@ -12,18 +12,12 @@ namespace AirManager.Infrastructure
     using System;
     using System.Collections.Generic;
     
-    public partial class Country
+    public partial class City
     {
-        public Country()
-        {
-            this.Cities = new HashSet<City>();
-            this.Airlines = new HashSet<Airline>();
-        }
-    
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
+        public string CountryId { get; set; }
     
-        public virtual ICollection<City> Cities { get; set; }
-        public virtual ICollection<Airline> Airlines { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

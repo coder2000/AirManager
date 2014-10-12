@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AirManager.Db
+namespace AirManager.Infrastructure
 {
     using System;
     using System.Collections.Generic;

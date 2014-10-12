@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AirManager.Db
+namespace AirManager.Infrastructure
 {
     using System;
     using System.Data.Entity;
@@ -27,5 +27,6 @@ namespace AirManager.Db
     
         public DbSet<Airline> Airlines { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }
