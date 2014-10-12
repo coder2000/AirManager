@@ -4,9 +4,9 @@ using AirManager.Airlines.ViewModels;
 namespace AirManager.Airlines.Views
 {
     /// <summary>
-    /// Interaction logic for NewAirlineView.xaml
+    ///     Interaction logic for NewAirlineView.xaml
     /// </summary>
-    [Export("NewAirlineView")]
+    [Export("NewAirline")]
     public partial class NewAirlineView
     {
         public NewAirlineView()
@@ -19,6 +19,6 @@ namespace AirManager.Airlines.Views
         {
             get { return DataContext as NewAirlineViewModel; }
             set { DataContext = value; }
-        }   
+        }
     }
 }

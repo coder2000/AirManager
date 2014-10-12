@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using System.Windows.Input;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Events;
@@ -46,7 +47,7 @@ namespace AirManager.Menus.ViewModels
 
         private void NewGame(object ignored)
         {
-            _regionManager.RequestNavigate(RegionNames.MainRegion, "/NewAirlineView");
+            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/NewAirline", UriKind.Relative));
         }
 
         private void LoadGame(object ignored)

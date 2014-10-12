@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Events;
 using Microsoft.Practices.Prism.Modularity;
@@ -30,7 +31,7 @@ namespace AirManager
             {
                 if (e.ModuleInfo.ModuleName == "MenuModule")
                 {
-                    RegionManager.RequestNavigate(RegionNames.MainRegion, "/MainMenu");
+                    RegionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/MainMenu", UriKind.Relative));
                 }
             };
         }

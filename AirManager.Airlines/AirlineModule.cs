@@ -3,10 +3,10 @@ using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 
-namespace AirManager.Menus
+namespace AirManager.Airlines
 {
-    [ModuleExport(typeof (MenuModule))]
-    public class MenuModule : IModule
+    [ModuleExport(typeof (AirlineModule))]
+    public class AirlineModule : IModule
     {
         [Import] public IRegionManager RegionManager;
 
