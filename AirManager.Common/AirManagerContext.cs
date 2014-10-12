@@ -13,6 +13,7 @@ namespace AirManager.Infrastructure
         public DbSet<Airline> Airlines { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Player> Players { get; set; }
+        public DbSet<City> Cities { get; set; } 
     }
 
     internal class DatabaseConfig

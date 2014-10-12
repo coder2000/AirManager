@@ -3,7 +3,6 @@ using System.Linq;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Models;
 using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace AirManager.Airlines.ViewModels
 {
@@ -12,13 +11,11 @@ namespace AirManager.Airlines.ViewModels
     {
         private readonly IOrderedQueryable<Country> _countries;
         private readonly AirManagerContext _dbContext = new AirManagerContext();
-        private readonly IEventAggregator _eventAggregator;
         private readonly Player _player;
 
         [ImportingConstructor]
-        public NewAirlineViewModel(IEventAggregator eventAggregator)
+        public NewAirlineViewModel()
         {
-            _eventAggregator = eventAggregator;
             _player = new Player {Airline = new Airline()};
             _dbContext.Players.Add(_player);
 
@@ -33,7 +30,8 @@ namespace AirManager.Airlines.ViewModels
         public Country Country
         {
             get { return _player.Airline.Country; }
-            set {
+            set
+            {
                 if (_player.Airline.Country == value)
                 {
                     return;
