@@ -1,13 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AirManager.Infrastructure.Models
 {
     public enum AirlineMarket
     {
-        LongHaul,
-        ShortHaul,
         Regional,
-        Domestic
+        Global
     }
 
     public class Airline
@@ -23,5 +22,6 @@ namespace AirManager.Infrastructure.Models
 
         public string CountryId { get; set; }
         public virtual Country Country { get; set; }
+        public virtual List<Airliner> Airliners { get; set; }
     }
 }
