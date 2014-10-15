@@ -110,6 +110,10 @@
     <Compile Include="Migrations\201410122253200_AddCitiesAndAirlines.Designer.cs">
       <DependentUpon>201410122253200_AddCitiesAndAirlines.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410130305383_AddAirliner.cs" />
+    <Compile Include="Migrations\201410130305383_AddAirliner.Designer.cs">
+      <DependentUpon>201410130305383_AddAirliner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Airline.cs" />
     <Compile Include="Models\Airliner.cs" />
@@ -123,6 +127,9 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Migrations\201410122253200_AddCitiesAndAirlines.resx">
       <DependentUpon>201410122253200_AddCitiesAndAirlines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410130305383_AddAirliner.resx">
+      <DependentUpon>201410130305383_AddAirliner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeedData\country.csv" />
   </ItemGroup>
