@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.Composition;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Models;
 using Microsoft.Practices.Prism.Mvvm;
@@ -7,24 +8,23 @@ using Microsoft.Practices.Prism.Mvvm;
 namespace AirManager.Airlines.ViewModels
 {
     [Export]
-    public class NewAirlineViewModel : BindableBase
+    public class NewAirlineViewModel : BindableBase, IDisposable
     {
-        private readonly IOrderedQueryable<Country> _countries;
         private readonly AirManagerContext _dbContext = new AirManagerContext();
         private readonly Player _player;
+        private readonly GameData _data;
 
         [ImportingConstructor]
-        public NewAirlineViewModel()
+        public NewAirlineViewModel(GameData data)
         {
+            _data = data;
             _player = new Player {Airline = new Airline()};
-            _dbContext.Players.Add(_player);
-
-            _countries = from country in _dbContext.Countries orderby country.Name select country;
+            _dbContext.Players.Add(_player);    
         }
 
-        public Country[] Countries
+        public IEnumerable<Country> Countries
         {
-            get { return _countries.ToArray(); }
+            get { return _data.Countries; }
         }
 
         public Country Country
@@ -61,6 +61,11 @@ namespace AirManager.Airlines.ViewModels
                 _player.Airline.Ceo = value;
                 OnPropertyChanged(() => Ceo);
             }
+        }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
         }
     }
 }

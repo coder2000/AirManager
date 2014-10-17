@@ -31,7 +31,7 @@ namespace AirManager
             {
                 if (e.ModuleInfo.ModuleName == "MenuModule")
                 {
-                    RegionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/MainMenu", UriKind.Relative));
+                    RegionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/Loading", UriKind.Relative));
                 }
             };
         }

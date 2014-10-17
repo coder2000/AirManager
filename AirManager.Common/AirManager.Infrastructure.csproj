@@ -63,6 +63,9 @@
     <Reference Include="Microsoft.Practices.Prism.Interactivity">
       <HintPath>..\packages\Prism.Interactivity.5.0.0\lib\NET45\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions">
+      <HintPath>..\packages\Prism.MEFExtensions.5.0.0\lib\NET45\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Mvvm">
       <HintPath>..\packages\Prism.Mvvm.1.0.0\lib\net45\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
     </Reference>
@@ -102,6 +105,8 @@
   <ItemGroup>
     <Compile Include="AirManagerContext.cs" />
     <Compile Include="Events\ExitGameEvent.cs" />
+    <Compile Include="GameData.cs" />
+    <Compile Include="InfrastructureModule.cs" />
     <Compile Include="Migrations\201410121915005_AddPlayer.cs" />
     <Compile Include="Migrations\201410121915005_AddPlayer.Designer.cs">
       <DependentUpon>201410121915005_AddPlayer.cs</DependentUpon>

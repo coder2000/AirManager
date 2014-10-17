@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="0" Grid.Column="1">
-            <TextBlock Text="Air Manager" FontSize="90" FontFamily="Stencil Std" VerticalAlignment="Center" />
+            <TextBlock Text="{}{Air Manager}" FontSize="90" FontFamily="/AirManager.Menus;component/Resources/Fonts/#Top Secret" VerticalAlignment="Center" />
             <Button Content="New Game" FontSize="30" Width="300" Command="{Binding NewGameCommand}" />
             <Button Content="Load Game" FontSize="30" Width="300" Margin="0 10" Command="{Binding LoadGameCommand}" />
             <Button Content="Exit" FontSize="30" Width="300" Command="{Binding ExitGameCommand}" />
