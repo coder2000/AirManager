@@ -67,12 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoadingViewModelFixture.cs" />
     <Compile Include="ViewModels\MainMenuViewModelFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
+      <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
+      <Name>AirManager.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirManager.Menus\AirManager.Menus.csproj">
       <Project>{72B8B962-EA68-4645-9D1A-8E24CC1399A2}</Project>
       <Name>AirManager.Menus</Name>

@@ -9,7 +9,7 @@ namespace AirManager.Menus.Tests.ViewModels
     public class MainMenuViewModelFixture
     {
         [Fact]
-        public void CanInitViewModel()
+        public void CanInitMainMenuViewModel()
         {
             var regionManager = new Mock<IRegionManager>();
             var eventAggregator = new Mock<IEventAggregator>();

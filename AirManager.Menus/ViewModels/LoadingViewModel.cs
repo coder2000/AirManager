@@ -12,11 +12,11 @@ namespace AirManager.Menus.ViewModels
     [Export(typeof (LoadingViewModel))]
     public class LoadingViewModel : BindableBase
     {
+        private static GameData _data;
         private static BackgroundWorker _worker;
         private readonly AirManagerContext _context = new AirManagerContext();
-        private readonly GameData _data;
-        private readonly IRegionManager _regionManager;
         private readonly DelegateCommand<object> _loadedCommand = new DelegateCommand<object>(Loaded);
+        private readonly IRegionManager _regionManager;
         private string _message;
         private int _progress;
 
@@ -26,9 +26,9 @@ namespace AirManager.Menus.ViewModels
             _data = data;
             _regionManager = regionManager;
             _worker = new BackgroundWorker {WorkerReportsProgress = true};
-            _worker.DoWork += WorkerOnDoWork;
             _worker.ProgressChanged += WorkerOnProgressChanged;
             _worker.RunWorkerCompleted += WorkerOnRunWorkerCompleted;
+            _worker.DoWork += WorkerOnDoWork;
         }
 
         public int LoadingProgress
@@ -73,7 +73,7 @@ namespace AirManager.Menus.ViewModels
 
         private void WorkerOnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs runWorkerCompletedEventArgs)
         {
-            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/NewAirline", UriKind.Relative));
+            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("NewAirline", UriKind.Relative));
         }
 
         private void WorkerOnProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -84,7 +84,7 @@ namespace AirManager.Menus.ViewModels
 
         private void WorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
-            _worker.ReportProgress(0, "Loading countries...");
+            _worker.ReportProgress(20, "Loading countries...");
 
             _data.Countries = (from country in _context.Countries orderby country.Name select country).ToArray();
 
