@@ -26,7 +26,7 @@ namespace AirManager.Menus.Views
 
         private void LoadingView_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.LoadedCommand.Execute(null);
+            ViewModel.Loaded();
         }
     }
 }

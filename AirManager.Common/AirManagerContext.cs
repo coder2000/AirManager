@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using System.Data.Entity;
 using AirManager.Infrastructure.Models;
 
 namespace AirManager.Infrastructure
 {
-    public class AirManagerContext : DbContext
+    [Export]
+    public sealed class AirManagerContext : DbContext
     {
         public AirManagerContext() : base(DatabaseConfig.ConnectionString)
         {
@@ -16,7 +18,7 @@ namespace AirManager.Infrastructure
         public DbSet<City> Cities { get; set; } 
     }
 
-    internal class DatabaseConfig
+    internal static class DatabaseConfig
     {
         private static string _connString;
 

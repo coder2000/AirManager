@@ -1,4 +1,5 @@
-﻿using AirManager.Menus.ViewModels;
+﻿using System.Diagnostics.CodeAnalysis;
+using AirManager.Menus.ViewModels;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 using Moq;
@@ -9,6 +10,7 @@ namespace AirManager.Menus.Tests.ViewModels
     public class MainMenuViewModelFixture
     {
         [Fact]
+        [ExcludeFromCodeCoverage]
         public void CanInitMainMenuViewModel()
         {
             var regionManager = new Mock<IRegionManager>();
