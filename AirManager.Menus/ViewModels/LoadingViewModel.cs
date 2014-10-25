@@ -8,7 +8,7 @@ using Microsoft.Practices.Prism.Regions;
 namespace AirManager.Menus.ViewModels
 {
     [Export(typeof (LoadingViewModel))]
-    public class LoadingViewModel : BindableBase
+    public class LoadingViewModel : BindableBase, IDisposable
     {
         private static GameData _data;
         private readonly AirManagerContext _context;
@@ -66,6 +66,11 @@ namespace AirManager.Menus.ViewModels
             LoadingMessage = "Loading Completed!";
 
             _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("NewAirline", UriKind.Relative));
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

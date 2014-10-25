@@ -10,16 +10,17 @@ namespace AirManager.Airlines.ViewModels
     [Export]
     public class NewAirlineViewModel : BindableBase, IDisposable
     {
-        private readonly AirManagerContext _dbContext = new AirManagerContext();
+        private readonly AirManagerContext _context;
         private readonly Player _player;
         private readonly GameData _data;
 
         [ImportingConstructor]
-        public NewAirlineViewModel(GameData data)
+        public NewAirlineViewModel(AirManagerContext context, GameData data)
         {
             _data = data;
+            _context = context;
             _player = new Player {Airline = new Airline()};
-            _dbContext.Players.Add(_player);    
+            _context.Players.Add(_player);    
         }
 
         public IEnumerable<Country> Countries
@@ -32,10 +33,7 @@ namespace AirManager.Airlines.ViewModels
             get { return _player.Airline.Country; }
             set
             {
-                if (_player.Airline.Country == value)
-                {
-                    return;
-                }
+                if (_player.Airline.Country == value) return;
                 _player.Airline.Country = value;
                 OnPropertyChanged(() => Country);
             }
@@ -65,7 +63,7 @@ namespace AirManager.Airlines.ViewModels
 
         public void Dispose()
         {
-            _dbContext.Dispose();
+            _context.Dispose();
         }
     }
 }

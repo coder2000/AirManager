@@ -47,7 +47,7 @@ namespace AirManager.Menus.ViewModels
 
         private void NewGame(object ignored)
         {
-            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("/NewAirline", UriKind.Relative));
+            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("NewAirline", UriKind.Relative));
         }
 
         private void LoadGame(object ignored)

@@ -15,23 +15,20 @@ namespace AirManager.Menus.Tests.ViewModels
 {
     public class LoadingViewModelFixture
     {
-        private LoadingViewModel _viewModel;
-        private Mock<IRegion> _regionMock; 
-
-        [ExcludeFromCodeCoverage]
-        private void SetupViewModel()
+        [Fact, ExcludeFromCodeCoverage]
+        public void WhenLoadingDoneNavigatesToNewAirline()
         {
             var data = new Mock<GameData>();
 
-            _regionMock = new Mock<IRegion>();
-            _regionMock.Setup(
+            var regionMock = new Mock<IRegion>();
+            regionMock.Setup(
                 x => x.RequestNavigate(new Uri("NewAirline", UriKind.Relative), It.IsAny<Action<NavigationResult>>()))
                 .Callback<Uri, Action<NavigationResult>>((s, c) => c(new NavigationResult(null, true)))
                 .Verifiable();
 
             var regionManager = new Mock<IRegionManager>();
             regionManager.Setup(x => x.Regions.ContainsRegionWithName(RegionNames.MainRegion)).Returns(true);
-            regionManager.Setup(x => x.Regions[RegionNames.MainRegion]).Returns(_regionMock.Object);
+            regionManager.Setup(x => x.Regions[RegionNames.MainRegion]).Returns(regionMock.Object);
 
             var countries = new List<Country>
             {
@@ -48,73 +45,91 @@ namespace AirManager.Menus.Tests.ViewModels
             var contextMock = new Mock<AirManagerContext>();
             contextMock.Setup(m => m.Countries).Returns(countryMock.Object);
 
-            _viewModel = new LoadingViewModel(regionManager.Object, contextMock.Object, data.Object);
-        }
+            var viewModel = new LoadingViewModel(regionManager.Object, contextMock.Object, data.Object);
 
-        [Fact, ExcludeFromCodeCoverage]
-        public void WhenLoadingDoneNavigatesToNewAirline()
-        {
-            SetupViewModel();
+            viewModel.Loaded();
 
-            _viewModel.Loaded();
-
-            _regionMock.VerifyAll();
+            regionMock.VerifyAll();
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void LoadingProgressShouldTriggerEvent()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.ShouldNotifyOn(p => p.LoadingProgress).When(p => p.LoadingProgress = 2);
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
+
+            viewModel.ShouldNotifyOn(p => p.LoadingProgress).When(p => p.LoadingProgress = 2);
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void CanGetAndSetLoadingProgress()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.LoadingProgress = 2;
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
 
-            Assert.Equal(_viewModel.LoadingProgress, 2);
+            viewModel.LoadingProgress = 2;
+
+            Assert.Equal(viewModel.LoadingProgress, 2);
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void LoadingMessageShouldTriggerEvent()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.ShouldNotifyOn(p => p.LoadingMessage).When(p => p.LoadingMessage = "Testing");
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
+
+            viewModel.ShouldNotifyOn(p => p.LoadingMessage).When(p => p.LoadingMessage = "Testing");
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void CanGetAndSetLoadingMessage()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.LoadingMessage = "Testing";
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
 
-            Assert.Equal(_viewModel.LoadingMessage, "Testing");
+            viewModel.LoadingMessage = "Testing";
+
+            Assert.Equal(viewModel.LoadingMessage, "Testing");
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void LoadingProgressShouldNotTriggerEvent()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.LoadingProgress = 2;
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
+
+            viewModel.LoadingProgress = 2;
             
-            _viewModel.ShouldNotNotifyOn(p => p.LoadingProgress).When(p => p.LoadingProgress = 2);
+            viewModel.ShouldNotNotifyOn(p => p.LoadingProgress).When(p => p.LoadingProgress = 2);
         }
 
         [Fact, ExcludeFromCodeCoverage]
         public void LoadingMessageShouldNotTriggerEvent()
         {
-            SetupViewModel();
+            var regionManager = new Mock<IRegionManager>();
+            var context = new Mock<AirManagerContext>();
+            var data = new Mock<GameData>();
 
-            _viewModel.LoadingMessage = "Testing";
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
 
-            _viewModel.ShouldNotNotifyOn(p => p.LoadingMessage).When(p => p.LoadingMessage = "Testing");
+            viewModel.LoadingMessage = "Testing";
+
+            viewModel.ShouldNotNotifyOn(p => p.LoadingMessage).When(p => p.LoadingMessage = "Testing");
         }
     }
 }

@@ -6,16 +6,16 @@ using AirManager.Infrastructure.Models;
 namespace AirManager.Infrastructure
 {
     [Export]
-    public sealed class AirManagerContext : DbContext
+    public class AirManagerContext : DbContext
     {
         public AirManagerContext() : base(DatabaseConfig.ConnectionString)
         {
         }
 
-        public DbSet<Airline> Airlines { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Player> Players { get; set; }
-        public DbSet<City> Cities { get; set; } 
+        public virtual DbSet<Airline> Airlines { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<City> Cities { get; set; } 
     }
 
     internal static class DatabaseConfig
