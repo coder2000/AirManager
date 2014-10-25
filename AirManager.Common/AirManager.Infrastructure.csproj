@@ -112,6 +112,7 @@
     <Compile Include="Extensions\NotifyPropertyChanged.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="InfrastructureModule.cs" />
+    <Compile Include="LoadProgress.cs" />
     <Compile Include="Migrations\201410121915005_AddPlayer.cs" />
     <Compile Include="Migrations\201410121915005_AddPlayer.Designer.cs">
       <DependentUpon>201410121915005_AddPlayer.cs</DependentUpon>

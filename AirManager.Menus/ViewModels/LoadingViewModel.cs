@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Threading.Tasks;
 using AirManager.Infrastructure;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Prism.Regions;
@@ -54,23 +55,32 @@ namespace AirManager.Menus.ViewModels
             }
         }
 
-        public void Loaded()
+        public void Dispose()
         {
-            LoadingProgress = 20;
-            LoadingMessage = "Loading Countries...";
+            _context.Dispose();
+        }
 
-            _data.Countries =
-                (from country in _context.Countries.AsParallel() orderby country.Name select country).ToArray();
+        private async Task LoadData(IProgress<LoadProgress> progress)
+        {
+            progress.Report(new LoadProgress {Message = "Loading Countries...", Progress = 20});
 
-            LoadingProgress = 100;
-            LoadingMessage = "Loading Completed!";
+            await Task.Run(() => (_data.Countries =
+                (from country in _context.Countries orderby country.Name select country).ToArray()));
+
+            progress.Report(new LoadProgress {Message = "Loading Completed!", Progress = 100});
+        }
+
+        public async void Loaded()
+        {
+            await LoadData(new Progress<LoadProgress>(UpdateProgress));
 
             _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("NewAirline", UriKind.Relative));
         }
 
-        public void Dispose()
+        private void UpdateProgress(LoadProgress progress)
         {
-            _context.Dispose();
+            LoadingProgress = progress.Progress;
+            LoadingMessage = progress.Message;
         }
     }
 }

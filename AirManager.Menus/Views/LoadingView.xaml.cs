@@ -14,15 +14,12 @@ namespace AirManager.Menus.Views
         {
             InitializeComponent();
 
-            IsVisibleChanged += OnIsVisibleChanged;
+            Loaded += OnLoaded;
         }
 
-        private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            if (IsVisible)
-            {
-                ViewModel.Loaded();
-            }
+            ViewModel.Loaded();
         }
 
         [Import]
