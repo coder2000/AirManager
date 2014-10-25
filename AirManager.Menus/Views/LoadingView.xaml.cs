@@ -14,19 +14,22 @@ namespace AirManager.Menus.Views
         {
             InitializeComponent();
 
-            Loaded += LoadingView_Loaded;
+            IsVisibleChanged += OnIsVisibleChanged;
+        }
+
+        private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        {
+            if (IsVisible)
+            {
+                ViewModel.Loaded();
+            }
         }
 
         [Import]
         public LoadingViewModel ViewModel
         {
-            get { return DataContext as LoadingViewModel; }
+            private get { return DataContext as LoadingViewModel; }
             set { DataContext = value; }
-        }
-
-        private void LoadingView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Loaded();
         }
     }
 }
