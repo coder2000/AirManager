@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.Data.Entity;
 using System.Diagnostics.CodeAnalysis;
 using AirManager.Airlines.ViewModels;
 using AirManager.Infrastructure;

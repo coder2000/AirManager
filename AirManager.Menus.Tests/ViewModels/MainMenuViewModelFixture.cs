@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.Diagnostics.CodeAnalysis;
 using AirManager.Menus.ViewModels;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;

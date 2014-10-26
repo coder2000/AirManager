@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.Composition;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.ComponentModel.Composition;
 using AirManager.Airlines.ViewModels;
 
 namespace AirManager.Airlines.Views

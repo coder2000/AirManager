@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.Windows;
 
 namespace AirManager
 {

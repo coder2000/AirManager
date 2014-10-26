@@ -1,4 +1,6 @@
-﻿namespace AirManager.Infrastructure.Models
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+namespace AirManager.Infrastructure.Models
 {
     public class Player
     {

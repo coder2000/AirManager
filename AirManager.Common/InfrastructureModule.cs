@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Prism.MefExtensions.Modularity;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
 
 namespace AirManager.Infrastructure

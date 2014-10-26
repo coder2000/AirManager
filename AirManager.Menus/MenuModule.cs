@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.Composition;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.ComponentModel.Composition;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;

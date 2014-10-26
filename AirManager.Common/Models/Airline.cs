@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System;
 using System.Collections.Generic;
 
 namespace AirManager.Infrastructure.Models

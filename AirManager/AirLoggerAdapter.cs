@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Logging;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.Prism.Logging;
 
 namespace AirManager

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.Composition.Hosting;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions;

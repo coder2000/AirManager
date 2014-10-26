@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright 2014 Dieter Lunn All Rights Reserved
+
+using System;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 using AirManager.Infrastructure;
