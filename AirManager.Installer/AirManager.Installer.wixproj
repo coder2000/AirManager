@@ -74,7 +74,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <WixToolPath>..\wix\4.0\</WixToolPath>
+    <WixToolPath>$(MSBuildProjectDirectory)\wix\4.0\</WixToolPath>
     <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
     <WixTasksPath>$(WixToolPath)wixtasks.dll</WixTasksPath>
   </PropertyGroup>
