@@ -22,7 +22,27 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="AirManager" />
+        <Directory Id="INSTALLFOLDER" Name="AirManager">
+          <Directory Id="AMD64Dir" Name="amd64">
+            <Directory Id="VC64" Name="Microsoft.VC90.CRT"/>
+          </Directory>
+        
+          <Directory Id="X86Dir" Name="x86">
+            <Directory Id="VC32" Name="Microsoft.VC90.CRT" />
+          </Directory>
+        
+          <Directory Id="DE" Name="de" />
+          <Directory Id="EN" Name="en" />
+          <Directory Id="ES" Name="es" />
+          <Directory Id="FR" Name="fr" />
+          <Directory Id="IT" Name="it" />
+          <Directory Id="JA" Name="ja" />
+          <Directory Id="KO" Name="ko" />
+          <Directory Id="RU" Name="ru" />
+          <Directory Id="HANS" Name="zh-Hans" />
+          <Directory Id="HANT" Name="zh-Hant" />
+
+        </Directory>
       </Directory>
     </Directory>
   </Fragment>
@@ -44,12 +64,22 @@
       <Component Id="AirManagerMenus" Guid="d78a986d-ba5c-4a3c-bb23-e633469e85af">
         <File Source="$(var.AirManager.TargetDir)AirManager.Menus.dll" KeyPath="yes" />
       </Component>
+      <Component Id="Json" Guid="4638e7ef-9d69-4d2f-91cb-b9444acfa55f">
+        <File Source="$(var.AirManager.TargetDir)Newtonsoft.Json.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="CsvHelper" Guid="957709b9-1ea4-4f8f-82d5-b3bffa58ff24">
+        <File Source="$(var.AirManager.TargetDir)CsvHelper.dll" KeyPath="yes" />
+      </Component>
 
       <ComponentGroupRef Id="SqlCEFiles" />
 
       <ComponentGroupRef Id="InteractivityLanguages" />
 
       <ComponentGroupRef Id="EntityFrameworkFiles" />
+
+      <ComponentGroupRef Id="EnterpriseLibraryFiles" />
+
+      <ComponentGroupRef Id="PrismFiles" />
     </ComponentGroup>
   </Fragment>
 </Wix>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+    <ComponentGroup Id="EnterpriseLibraryFiles" Directory="INSTALLFOLDER">
+      <Component Id="Common" Guid="daf30220-f6b1-43e1-8105-604e95bfd33b">
+        <File Source="$(var.AirManager.TargetDir)Microsoft.Practices.EnterpriseLibrary.Common.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ExceptionHandling" Guid="f85ad156-fadd-4762-85dc-f7393c3037e2">
+        <File Source="$(var.AirManager.TargetDir)Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ExceptionLogging" Guid="b1bafad5-c7b8-4a93-b5bb-6923d197df76">
+        <File Source="$(var.AirManager.TargetDir)Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="Logging" Guid="755d9db5-021c-45d8-bad5-f6f6d18985dd">
+        <File Source="$(var.AirManager.TargetDir)Microsoft.Practices.EnterpriseLibrary.Logging.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

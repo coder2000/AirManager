@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace AirManager.Infrastructure.Extensions
+namespace AirManager.Menus.Tests.Extensions
 {
     public static class NotifyPropertyChanged
     {

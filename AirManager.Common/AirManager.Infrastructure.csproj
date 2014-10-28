@@ -103,15 +103,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirManagerContext.cs" />
     <Compile Include="Events\ExitGameEvent.cs" />
-    <Compile Include="Extensions\NotifyExpectation.cs" />
-    <Compile Include="Extensions\NotifyPropertyChanged.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="InfrastructureModule.cs" />
     <Compile Include="LoadProgress.cs" />

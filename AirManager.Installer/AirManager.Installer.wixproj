@@ -21,8 +21,10 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EnterpriseLibraryFiles.wxs" />
     <Compile Include="EntityFrameworkFiles.wxs" />
     <Compile Include="InteractivityLanguages.wxs" />
+    <Compile Include="PrismFiles.wxs" />
     <Compile Include="Product.wxs" />
     <Compile Include="SqlCEFiles.wxs" />
   </ItemGroup>

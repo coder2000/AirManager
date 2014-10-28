@@ -84,6 +84,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Extensions\NotifyExpectation.cs" />
+    <Compile Include="Extensions\NotifyPropertyChanged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoadingViewModelFixture.cs" />
     <Compile Include="ViewModels\MainMenuViewModelFixture.cs" />

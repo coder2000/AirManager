@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using Xunit;
 
-namespace AirManager.Infrastructure.Extensions
+namespace AirManager.Menus.Tests.Extensions
 {
     public class NotifyExpectation<T> where T : INotifyPropertyChanged
     {

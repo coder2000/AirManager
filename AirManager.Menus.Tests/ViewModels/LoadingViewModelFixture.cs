@@ -6,8 +6,8 @@ using System.Data.Entity;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AirManager.Infrastructure;
-using AirManager.Infrastructure.Extensions;
 using AirManager.Infrastructure.Models;
+using AirManager.Menus.Tests.Extensions;
 using AirManager.Menus.ViewModels;
 using Microsoft.Practices.Prism.Regions;
 using Moq;
@@ -73,9 +73,10 @@ namespace AirManager.Menus.Tests.ViewModels
             var context = new Mock<AirManagerContext>();
             var data = new Mock<GameData>();
 
-            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
-
-            viewModel.LoadingProgress = 2;
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object)
+            {
+                LoadingProgress = 2
+            };
 
             Assert.Equal(viewModel.LoadingProgress, 2);
         }
@@ -99,9 +100,10 @@ namespace AirManager.Menus.Tests.ViewModels
             var context = new Mock<AirManagerContext>();
             var data = new Mock<GameData>();
 
-            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
-
-            viewModel.LoadingMessage = "Testing";
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object)
+            {
+                LoadingMessage = "Testing"
+            };
 
             Assert.Equal(viewModel.LoadingMessage, "Testing");
         }
@@ -113,10 +115,11 @@ namespace AirManager.Menus.Tests.ViewModels
             var context = new Mock<AirManagerContext>();
             var data = new Mock<GameData>();
 
-            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object)
+            {
+                LoadingProgress = 2
+            };
 
-            viewModel.LoadingProgress = 2;
-            
             viewModel.ShouldNotNotifyOn(p => p.LoadingProgress).When(p => p.LoadingProgress = 2);
         }
 
@@ -127,9 +130,10 @@ namespace AirManager.Menus.Tests.ViewModels
             var context = new Mock<AirManagerContext>();
             var data = new Mock<GameData>();
 
-            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object);
-
-            viewModel.LoadingMessage = "Testing";
+            var viewModel = new LoadingViewModel(regionManager.Object, context.Object, data.Object)
+            {
+                LoadingMessage = "Testing"
+            };
 
             viewModel.ShouldNotNotifyOn(p => p.LoadingMessage).When(p => p.LoadingMessage = "Testing");
         }
