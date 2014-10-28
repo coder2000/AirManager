@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Product Id="*" Name="Air Manager" Language="1033" Version="1.0.0.0" Manufacturer="Dieter Lunn" UpgradeCode="4d71702f-d898-431a-8875-28f06fa3c61f">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <?define VERSION=!(bind.FileVersion.$(var.AirManager.TargetFileName)) ?>
+  <Product Id="*" Name="Air Manager $(var.VERSION)" Language="1033" Version="$(var.VERSION)" Manufacturer="Dieter Lunn"
+           UpgradeCode="4d71702f-d898-431a-8875-28f06fa3c61f">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
-		<Feature Id="ProductFeature" Title="Air Manager" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+    <Feature Id="ProductFeature" Title="Air Manager" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="AirManager" />
-			</Directory>
-		</Directory>
-	</Fragment>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
-	</Fragment>
+    <UIRef Id="WixUI_Mondo" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="AirManager" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="AirManagerExe" Guid="29d660dd-daa6-4f2f-989f-5f7061051f6d">
+        <File Id="AirManager.exe" Source="$(var.AirManager.TargetPath)" KeyPath="yes" Checksum="yes" />
+      </Component>
+      <Component Id="AirManagerConfig" Guid="707af917-7034-4b7c-ac26-0bab306bd7c7">
+        <File Source="$(var.AirManager.TargetDir)AirManager.exe.config" KeyPath="yes" />
+      </Component>
+      <Component Id="AirManagerAirlines" Guid="db002946-5c70-4d1c-ae64-5c0a4455f716">
+        <File Source="$(var.AirManager.TargetDir)AirManager.Airlines.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AirManagerInfrastructure" Guid="fb28e65d-ca7f-4799-83fc-e6d47c8b087a">
+        <File Source="$(var.AirManager.TargetDir)AirManager.Infrastructure.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AirManagerMenus" Guid="d78a986d-ba5c-4a3c-bb23-e633469e85af">
+        <File Source="$(var.AirManager.TargetDir)AirManager.Menus.dll" KeyPath="yes" />
+      </Component>
+
+      <ComponentGroupRef Id="SqlCEFiles" />
+
+      <ComponentGroupRef Id="InteractivityLanguages" />
+
+      <ComponentGroupRef Id="EntityFrameworkFiles" />
+    </ComponentGroup>
+  </Fragment>
 </Wix>

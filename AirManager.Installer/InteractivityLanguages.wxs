@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+    <ComponentGroup Id="InteractivityLanguages" Directory="INSTALLFOLDER" Source="$(var.AirManager.TargetDir)">
+      <Component Id="GermanInteractivity" Guid="68950fa1-736d-4fe5-866b-6a883cb9b5a9">
+        <File Id="German" Source="de/System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="EnglishInteractivity" Guid="c00f404b-fa31-4627-8452-37db083feb4f">
+        <File Id="English" Source="en/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="SpanishInteractivity" Guid="5f6592f6-8629-444a-baee-d8b1cfe5f4e0">
+        <File Id="Spanish" Source="es/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="FrenchInteractivity" Guid="72fc26cf-46d3-43fc-80e7-dad6d6c7584e">
+        <File Id="French" Source="fr/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="ItalianInteractivity" Guid="12190a1b-ebb3-404b-98c0-08f11450f241">
+        <File Id="Italian" Source="it/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="JapaneseInteractivity" Guid="c391c471-1506-4faa-b321-dc88fbfe525a">
+        <File Id="Japanese" Source="ja/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="KoreanInteractivity" Guid="565ebe0e-3576-431b-88ce-0073ea65e359">
+        <File Id="Korean" Source="ko/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="RussianInteractivity" Guid="01f96508-40e3-4817-90c2-9aa15090a2c5">
+        <File Id="Russian" Source="ru/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="SimplifiedInteractivity" Guid="c1c6c58c-e899-442c-9cbc-aed008ee304d">
+        <File Id="Simplified" Source="zh-Hans/System.Windows.Interactivity.resources.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="TraditionalInteractivity" Guid="5ec1664e-af99-446d-94bd-be05f82a0145">
+        <File Id="Traditional" Source="zh-Hant/System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+    <ComponentGroup Id="SqlCEFiles" Directory="INSTALLFOLDER" Source="$(var.AirManager.TargetDir)">
+      <!-- 64 Bit Files -->
+      <Component Id="MsVC9064" Guid="e815523e-d1f9-418a-b100-738e6604ed77">
+        <File Id="vc9064" Source="amd64/Microsoft.VC90.CRT/msvcr90.dll" KeyPath ="yes" />
+      </Component>
+      <Component Id="sqlceca4064" Guid="71d0a8b8-c365-49d3-8992-54decfbe2dfe" >
+        <File Id="ca4064" Source="amd64/sqlceca40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlcecompact4064" Guid="cc5b2fb7-d53a-4026-bda5-4623b871ddb1">
+        <File Id="compact4064" Source="amd64/sqlcecompact40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceer40EN64" Guid="de6a0b94-d230-4710-9480-97f1ab57ce70">
+        <File Id="er40EN64" Source="amd64/sqlceer40EN.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceme4064" Guid="93aa7b1a-7ae5-494f-b5a0-5e55c6f514f5">
+        <File Id="me4064" Source="amd64/sqlceme40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceqp4064" Guid="99788ed9-5783-408d-b0ae-19c9f471b9e2">
+        <File Id="qp4064" Source="amd64/sqlceqp40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlcese4064" Guid="c883adcd-36b8-48d7-bfee-56a34d141423">
+        <File Id="se4064" Source="amd64/sqlcese40.dll" KeyPath="yes" />
+      </Component>
+
+      <!-- 32 Bit Files -->
+      <Component Id="MsVC9032" Guid="31a57f0a-c987-41ca-81fd-3191e773f4b3">
+        <File Source="x86/Microsoft.VC90/CRT/msvcr90.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceca4032" Guid="67c8d7ef-0c93-4c31-ab3c-7e91dc7e8ee4" >
+        <File Source="x86/sqlceca40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlcecompact4032" Guid="efceec54-0a86-48c1-a491-a2a3f8746bf9">
+        <File Source="x86/sqlcecompact40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceer40EN32" Guid="5fab2183-2c83-4ff1-aa17-d8166a7035bb">
+        <File Source="x86/sqlceer40EN.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceme4032" Guid="837f97ff-7be2-4406-a104-95cbfa11c8f3">
+        <File Source="x86/sqlceme40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlceqp4032" Guid="8d57ba30-2140-41e4-be26-18f8cffaaad0">
+        <File Source="x86/sqlceqp40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="sqlcese4032" Guid="4035408e-f7ee-4480-97df-f6a3d89c6a6b">
+        <File Source="x86/sqlcese40.dll" KeyPath="yes" />
+      </Component>
+      
+      <!-- Generic Files -->
+      <Component Id="SqlServerCe" Guid="8470b073-9fb6-4b72-81bb-fb9347a7273c">
+        <File Source="System.Data.SqlServerCe.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SqlServerCeEntity" Guid="bcc6cc64-f87a-4f32-bac7-0363cc2acc1a">
+        <File Source="System.Data.SqlServerCe.Entity.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>
