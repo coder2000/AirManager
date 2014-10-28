@@ -58,10 +58,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GameDataFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
+      <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
+      <Name>AirManager.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
