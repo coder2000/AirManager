@@ -72,6 +72,13 @@
       <Name>WixUIExtension</Name>
     </WixExtension>
   </ItemGroup>
+
+  <PropertyGroup>
+    <WixToolPath>..\wix\4.0\</WixToolPath>
+    <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
+    <WixTasksPath>$(WixToolPath)wixtasks.dll</WixTasksPath>
+  </PropertyGroup>
+  
   <Import Project="$(WixTargetsPath)" />
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
