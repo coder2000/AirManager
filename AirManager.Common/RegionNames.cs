@@ -5,5 +5,6 @@ namespace AirManager.Infrastructure
     public static class RegionNames
     {
         public const string MainRegion = "MainRegion";
+        public const string RibbonRegion = "RibbonRegion";
     }
 }
