@@ -50,6 +50,9 @@
     <Reference Include="Fluent">
       <HintPath>..\packages\Fluent.Ribbon.3.0.3\lib\net45\Fluent.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ComponentModel.Composition.Diagnostics">
+      <HintPath>..\packages\MEFX.Core.Unofficial.0.4\lib\Microsoft.ComponentModel.Composition.Diagnostics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>

@@ -16,7 +16,7 @@ namespace AirManager.Airlines
 
         public void Initialize()
         {
-            RegionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(AirlineTab));
+            RegionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof (AirlineTab));
         }
     }
 }

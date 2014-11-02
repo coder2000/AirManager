@@ -1,10 +1,10 @@
-﻿<Application x:Class="AirManager.App"
+﻿<Application x:Uid="Application_1" x:Class="AirManager.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary x:Uid="ResourceDictionary_1">
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/themes/office2013/generic.xaml" />
+                <ResourceDictionary x:Uid="ResourceDictionary_2" Source="pack://application:,,,/Fluent;Component/themes/office2013/generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

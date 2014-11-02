@@ -1,15 +1,14 @@
 ﻿// Copyright 2014 Dieter Lunn All Rights Reserved
 
-using System.ComponentModel;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
+using AirManager.Infrastructure;
 using AirManager.Infrastructure.Regions;
 using Fluent;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.ServiceLocation;
 
 namespace AirManager
 {
@@ -34,6 +33,7 @@ namespace AirManager
             base.ConfigureAggregateCatalog();
 
             AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (AirBootstrapper).Assembly));
+            AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (InfrastructureModule).Assembly));
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -48,11 +48,18 @@ namespace AirManager
 
         protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
         {
-            var mappings = ServiceLocator.Current.GetInstance<RegionAdapterMappings>();
+            RegionAdapterMappings mappings = base.ConfigureRegionAdapterMappings();
 
             mappings.RegisterMapping(typeof (Ribbon), Container.GetExportedValue<RibbonRegionAdapter>());
 
             return mappings;
+        }
+
+        protected override CompositionContainer CreateContainer()
+        {
+            var container = new CompositionContainer(AggregateCatalog, CompositionOptions.DisableSilentRejection);
+
+            return container;
         }
     }
 }
