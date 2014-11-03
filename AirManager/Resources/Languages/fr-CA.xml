@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Dictionary Culture="fr-CA" CultureName="French">
+  <Value Id="MenuExit" Header="Sortie" />
+</Dictionary>

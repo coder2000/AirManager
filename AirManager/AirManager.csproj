@@ -52,7 +52,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>plane.ico</ApplicationIcon>
-    <UICulture>en-CA</UICulture>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -227,6 +226,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="plane.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Languages\en-CA.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Languages\en-US.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Languages\fr-CA.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

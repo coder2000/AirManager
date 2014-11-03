@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fluent="urn:fluent-ribbon"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Header="Airline">
+             d:DesignHeight="300" d:DesignWidth="358" Header="Airline">
     <fluent:RibbonGroupBox Header="Planes">
-        <fluent:Button Header="Buy Plane" />
+        <fluent:Button Header="Buy Plane" LargeIcon="AirManager.Airlines;component/Resources/Icons/newplane.png" Icon="AirManager.Airlines;component/Resources/Icons/newplane.png" />
     </fluent:RibbonGroupBox>
 </fluent:RibbonTabItem>
