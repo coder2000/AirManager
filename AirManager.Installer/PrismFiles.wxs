@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Fragment>
     <ComponentGroup Id="PrismFiles" Directory="INSTALLFOLDER">
       <Component Id="Composition" Guid="8cc8507a-72ad-4709-81d2-a50eb83ff651">

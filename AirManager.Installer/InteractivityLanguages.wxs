@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Fragment>
-    <ComponentGroup Id="InteractivityLanguages" Directory="INSTALLFOLDER">
+    <ComponentGroup Id="InteractivityLanguages">
       <Component Id="GermanInteractivity" Guid="68950fa1-736d-4fe5-866b-6a883cb9b5a9" Directory="DE">
         <File Id="German" Source="$(var.AirManager.TargetDir)de/System.Windows.Interactivity.resources.dll" KeyPath="yes" />
       </Component>

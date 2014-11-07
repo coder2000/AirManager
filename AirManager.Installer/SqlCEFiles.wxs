@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Fragment>
-    <ComponentGroup Id="SqlCEFiles" Directory="INSTALLFOLDER">
+    <ComponentGroup Id="SqlCEFiles">
       <!-- 64 Bit Files -->
       <Component Id="MsVC9064" Guid="e815523e-d1f9-418a-b100-738e6604ed77" Directory="VC64">
         <File Id="vc9064" Source="$(var.AirManager.TargetDir)amd64/Microsoft.VC90.CRT/msvcr90.dll" KeyPath ="yes" />
@@ -49,10 +49,10 @@
       </Component>
       
       <!-- Generic Files -->
-      <Component Id="SqlServerCe" Guid="8470b073-9fb6-4b72-81bb-fb9347a7273c">
+      <Component Id="SqlServerCe" Guid="8470b073-9fb6-4b72-81bb-fb9347a7273c" Directory="INSTALLFOLDER">
         <File Source="$(var.AirManager.TargetDir)System.Data.SqlServerCe.dll" KeyPath="yes" />
       </Component>
-      <Component Id="SqlServerCeEntity" Guid="bcc6cc64-f87a-4f32-bac7-0363cc2acc1a">
+      <Component Id="SqlServerCeEntity" Guid="bcc6cc64-f87a-4f32-bac7-0363cc2acc1a" Directory="INSTALLFOLDER">
         <File Source="$(var.AirManager.TargetDir)System.Data.SqlServerCe.Entity.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>

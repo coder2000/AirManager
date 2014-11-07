@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?define VERSION=!(bind.FileVersion.$(var.AirManager.TargetFileName)) ?>
   <Product Id="*" Name="Air Manager $(var.VERSION)" Language="1033" Version="$(var.VERSION)" Manufacturer="Dieter Lunn"
            UpgradeCode="4d71702f-d898-431a-8875-28f06fa3c61f">
@@ -73,7 +73,7 @@
 
       <ComponentGroupRef Id="SqlCEFiles" />
 
-      <ComponentGroupRef Id="InteractivityLanguages" />
+      <!--<ComponentGroupRef Id="InteractivityLanguages" />-->
 
       <ComponentGroupRef Id="EntityFrameworkFiles" />
 
