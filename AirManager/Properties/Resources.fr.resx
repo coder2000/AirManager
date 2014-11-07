@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AirlineBuyAirplane" xml:space="preserve">
-    <value>Buy Airplane</value>
-  </data>
-  <data name="AirlineTabHeader" xml:space="preserve">
-    <value>Airline</value>
-  </data>
   <data name="MenuExit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Sortie</value>
+  </data>
+  <data name="AirlineBuyAirplane" xml:space="preserve">
+    <value>Acheter Avion</value>
   </data>
 </root>

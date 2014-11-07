@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel.Composition;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Events;
+using AirManager.ViewModels;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
@@ -25,6 +26,13 @@ namespace AirManager
         {
             InitializeComponent();
             eventAggregator.GetEvent<ExitGameEvent>().Subscribe(ExitGame);
+        }
+
+        [Import]
+        public MainWindowViewModel ViewModel
+        {
+            get { return DataContext as MainWindowViewModel; }
+            set { DataContext = value; }
         }
 
         public void OnImportsSatisfied()

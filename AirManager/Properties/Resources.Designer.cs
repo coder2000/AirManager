@@ -61,6 +61,24 @@ namespace AirManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buy Airplane.
+        /// </summary>
+        internal static string AirlineBuyAirplane {
+            get {
+                return ResourceManager.GetString("AirlineBuyAirplane", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Airline.
+        /// </summary>
+        internal static string AirlineTabHeader {
+            get {
+                return ResourceManager.GetString("AirlineTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string MenuExit {
