@@ -16,16 +16,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <Grid.Resources>
             <DataTemplate x:Key="CultureTemplate" DataType="{x:Type viewModels:CultureViewModel}">
                 <StackPanel>
-                    <Image Source="{Binding Flag}" Tag="{Binding Language}" Width="70" Height="47" Name="Flag" />
+                    <Image Source="{Binding Flag}" Width="70" Height="47" Name="Flag" />
                     <TextBlock Text="{Binding LanguageName, Mode=OneWay}" FontSize="10" />
                 </StackPanel>
             </DataTemplate>
         </Grid.Resources>
-        
+
         <fluent:Ribbon prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.RibbonRegion}">
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
@@ -34,15 +34,15 @@
                     </fluent:BackstageTabControl>
                 </fluent:Backstage>
             </fluent:Ribbon.Menu>
-            
+
             <fluent:Ribbon.QuickAccessItems>
                 <fluent:QuickAccessMenuItem>
-                    <fluent:DropDownButton Header="English" Icon="pack://application:,,,/AirManager;component/Resources/Icons/Flags/en.png">
+                    <fluent:DropDownButton Header="Language" Icon="{Binding FlagPath}">
                         <fluent:Gallery ItemsSource="{Binding Cultures}" ItemTemplate="{DynamicResource CultureTemplate}">
                             <fluent:Gallery.ItemContainerStyle>
                                 <Style TargetType="{x:Type fluent:GalleryItem}" BasedOn="{StaticResource GalleryItemStyle}">
-                                    <Setter Property="Command" Value="{Binding ChangeLanguageCommand}" />
-                                    <Setter Property="CommandParameter" Value="{Binding ElementName=Flag, Path=Tag}" />
+                                    <Setter Property="Command" Value="{Binding DataContext.ChangeLanguageCommand, RelativeSource={RelativeSource AncestorType=fluent:Gallery}}" />
+                                    <Setter Property="CommandParameter" Value="{Binding Language}" />
                                 </Style>
                             </fluent:Gallery.ItemContainerStyle>
                         </fluent:Gallery>

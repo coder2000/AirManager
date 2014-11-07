@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.Windows.Input;
@@ -14,9 +14,10 @@ namespace AirManager.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private readonly DelegateCommand<string> _changeLanguageCommand;
-        private readonly DelegateCommand<object> _exitCommand;
-        private List<CultureViewModel> _culture;
         private readonly IEventAggregator _eventAggregator;
+        private readonly DelegateCommand<object> _exitCommand;
+        private ObservableCollection<CultureViewModel> _culture;
+        private string _languageCode = "en";
 
         [ImportingConstructor]
         public MainWindowViewModel(IEventAggregator eventAggregator)
@@ -24,11 +25,6 @@ namespace AirManager.ViewModels
             _eventAggregator = eventAggregator;
             _changeLanguageCommand = new DelegateCommand<string>(ChangeLanguage);
             _exitCommand = new DelegateCommand<object>(ExitGame);
-        }
-
-        private void ExitGame(object ignored)
-        {
-            _eventAggregator.GetEvent<ExitGameEvent>().Publish(null);
         }
 
         public ICommand ChangeLanguageCommand
@@ -41,20 +37,41 @@ namespace AirManager.ViewModels
             get { return _exitCommand; }
         }
 
-        public IEnumerable<CultureViewModel> Cultures
+        public string FlagPath
+        {
+            get
+            {
+                return string.Format("pack://application:,,,/AirManager;component/Resources/Icons/Flags/{0}.png",
+                    _languageCode);
+            }
+
+            set
+            {
+                _languageCode = value;
+                OnPropertyChanged(() => FlagPath);
+            }
+        }
+
+        public ObservableCollection<CultureViewModel> Cultures
         {
             get { return _culture ?? (_culture = BuildCultures()); }
         }
 
+        private void ExitGame(object ignored)
+        {
+            _eventAggregator.GetEvent<ExitGameEvent>().Publish(null);
+        }
+
         private void ChangeLanguage(string langugage)
         {
+            FlagPath = langugage;
             LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
             LocalizeDictionary.Instance.Culture = new CultureInfo(langugage);
         }
 
-        private static List<CultureViewModel> BuildCultures()
+        private static ObservableCollection<CultureViewModel> BuildCultures()
         {
-            var cultures = new List<CultureViewModel>
+            var cultures = new ObservableCollection<CultureViewModel>
             {
                 CultureViewModel.Create(
                     string.Format("pack://application:,,,/AirManager;component/Resources/Icons/Flags/{0}.png", "en"),
