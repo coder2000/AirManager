@@ -4,6 +4,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Regions;
+using AirManager.Views;
 using Fluent;
 using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.MefExtensions;

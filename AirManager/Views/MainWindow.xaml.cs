@@ -9,12 +9,12 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 
-namespace AirManager
+namespace AirManager.Views
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    [Export]
+    [Export("Main")]
     public partial class MainWindow : IPartImportsSatisfiedNotification
     {
         [Import(AllowRecomposition = false)] public IModuleManager ModuleManager;

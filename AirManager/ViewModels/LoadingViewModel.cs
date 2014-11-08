@@ -8,7 +8,7 @@ using AirManager.Infrastructure;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Prism.Regions;
 
-namespace AirManager.Menus.ViewModels
+namespace AirManager.ViewModels
 {
     [Export(typeof (LoadingViewModel))]
     public class LoadingViewModel : BindableBase, IDisposable
@@ -30,7 +30,7 @@ namespace AirManager.Menus.ViewModels
         public int LoadingProgress
         {
             get { return _progress; }
-            set
+            private set
             {
                 if (_progress == value)
                 {

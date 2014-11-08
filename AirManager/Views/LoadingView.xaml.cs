@@ -2,9 +2,9 @@
 
 using System.ComponentModel.Composition;
 using System.Windows;
-using AirManager.Menus.ViewModels;
+using AirManager.ViewModels;
 
-namespace AirManager.Menus.Views
+namespace AirManager.Views
 {
     /// <summary>
     ///     Interaction logic for LoadingView.xaml
