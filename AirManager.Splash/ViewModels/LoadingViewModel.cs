@@ -5,26 +5,27 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 using AirManager.Infrastructure;
+using AirManager.Infrastructure.Events;
 using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Prism.PubSubEvents;
 
-namespace AirManager.ViewModels
+namespace AirManager.Splash.ViewModels
 {
     [Export(typeof (LoadingViewModel))]
     public class LoadingViewModel : BindableBase, IDisposable
     {
         private static GameData _data;
         private readonly AirManagerContext _context;
-        private readonly IRegionManager _regionManager;
+        private readonly IEventAggregator _eventAggregator;
         private string _message;
         private int _progress;
 
         [ImportingConstructor]
-        public LoadingViewModel(IRegionManager regionManager, AirManagerContext context, GameData data)
+        public LoadingViewModel(IEventAggregator eventAggregator, AirManagerContext context, GameData data)
         {
             _context = context;
             _data = data;
-            _regionManager = regionManager;
+            _eventAggregator = eventAggregator;
         }
 
         public int LoadingProgress
@@ -76,7 +77,7 @@ namespace AirManager.ViewModels
         {
             await LoadData(new Progress<LoadProgress>(UpdateProgress));
 
-            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("NewAirline", UriKind.Relative));
+            _eventAggregator.GetEvent<CloseSplashEvent>().Publish(null);
         }
 
         private void UpdateProgress(LoadProgress progress)

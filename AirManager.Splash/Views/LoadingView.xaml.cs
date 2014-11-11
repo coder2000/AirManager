@@ -2,19 +2,24 @@
 
 using System.ComponentModel.Composition;
 using System.Windows;
-using AirManager.ViewModels;
+using AirManager.Infrastructure.Events;
+using AirManager.Splash.ViewModels;
+using Microsoft.Practices.Prism.PubSubEvents;
 
-namespace AirManager.Views
+namespace AirManager.Splash.Views
 {
     /// <summary>
     ///     Interaction logic for LoadingView.xaml
     /// </summary>
-    [Export("Loading")]
+    [Export]
     public partial class LoadingView
     {
-        public LoadingView()
+        [ImportingConstructor]
+        public LoadingView(IEventAggregator eventAggregator)
         {
             InitializeComponent();
+
+            eventAggregator.GetEvent<CloseSplashEvent>().Subscribe((i) => Close());
 
             Loaded += OnLoaded;
         }

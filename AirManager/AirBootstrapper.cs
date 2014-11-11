@@ -2,8 +2,11 @@
 
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
+using AirManager.Airlines;
 using AirManager.Infrastructure;
+using AirManager.Infrastructure.Interfaces;
 using AirManager.Infrastructure.Regions;
+using AirManager.Splash;
 using AirManager.Views;
 using Fluent;
 using Microsoft.Practices.Prism.Logging;
@@ -19,14 +22,14 @@ namespace AirManager
 
         protected override DependencyObject CreateShell()
         {
-            return Container.GetExportedValue<MainWindow>();
+            return Container.GetExportedValue<IShell>() as DependencyObject;
         }
 
         protected override void InitializeShell()
         {
-            base.InitializeShell();
-            Application.Current.MainWindow = (Window) Shell;
-            Application.Current.MainWindow.Show();
+            //base.InitializeShell();
+            //Application.Current.MainWindow = (Window) Shell;
+            //Application.Current.MainWindow.Show();
         }
 
         protected override void ConfigureAggregateCatalog()
@@ -34,7 +37,9 @@ namespace AirManager
             base.ConfigureAggregateCatalog();
 
             AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (AirBootstrapper).Assembly));
+            AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (SplashModule).Assembly));
             AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (InfrastructureModule).Assembly));
+            AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof (AirlineModule).Assembly));
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

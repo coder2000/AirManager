@@ -9,7 +9,7 @@ using Microsoft.Practices.Prism.Regions;
 
 namespace AirManager.Airlines
 {
-    [ModuleExport(typeof (AirlineModule))]
+    [ModuleExport(typeof (AirlineModule), DependsOnModuleNames = new []{"InfrastructureModule"})]
     public class AirlineModule : IModule
     {
         [Import] public IRegionManager RegionManager;

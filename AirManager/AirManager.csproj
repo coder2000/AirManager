@@ -146,12 +146,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\CultureViewModel.cs" />
-    <Compile Include="ViewModels\LoadingViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="Views\LoadingView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -161,9 +156,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\LoadingView.xaml.cs">
-      <DependentUpon>LoadingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -208,6 +200,10 @@
     <ProjectReference Include="..\AirManager.Common\AirManager.Infrastructure.csproj">
       <Project>{D6074F29-A044-43C0-8D27-34EC5A54D7A5}</Project>
       <Name>AirManager.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirManager.Splash\AirManager.Splash.csproj">
+      <Project>{26548CDF-2AE9-4A05-9722-BCB8642B26C5}</Project>
+      <Name>AirManager.Splash</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -61,6 +61,9 @@
       <Component Id="AirManagerInfrastructure" Guid="fb28e65d-ca7f-4799-83fc-e6d47c8b087a">
         <File Source="$(var.AirManager.TargetDir)AirManager.Infrastructure.dll" KeyPath="yes" />
       </Component>
+      <Component Id="AirManagerSplash" Guid="b4f29462-d2f4-4045-89ae-b84c0ed66216">
+        <File Source="$(var.AirManager.TargetDir)AirManager.Splash.dll" KeyPath="yes" />
+      </Component>
       <Component Id="Json" Guid="4638e7ef-9d69-4d2f-91cb-b9444acfa55f">
         <File Source="$(var.AirManager.TargetDir)Newtonsoft.Json.dll" KeyPath="yes" />
       </Component>

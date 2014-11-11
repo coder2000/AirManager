@@ -6,6 +6,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <GroupBox Header="Upcoming Flights" Grid.Column="0" Grid.Row="0" Padding="10">
+            <ListBox>
+                <TextBlock>234 Toronto 4:45</TextBlock>
+            </ListBox>
+        </GroupBox>
     </Grid>
 </UserControl>

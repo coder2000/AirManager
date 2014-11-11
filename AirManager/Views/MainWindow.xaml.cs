@@ -2,10 +2,11 @@
 
 using System;
 using System.ComponentModel.Composition;
+using System.Windows;
 using AirManager.Infrastructure;
 using AirManager.Infrastructure.Events;
+using AirManager.Infrastructure.Interfaces;
 using AirManager.ViewModels;
-using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 
@@ -14,18 +15,25 @@ namespace AirManager.Views
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    [Export("Main")]
-    public partial class MainWindow : IPartImportsSatisfiedNotification
+    [Export(typeof (IShell))]
+    public partial class MainWindow : IShell
     {
-        [Import(AllowRecomposition = false)] public IModuleManager ModuleManager;
-
-        [Import(AllowRecomposition = false)] public IRegionManager RegionManager;
+        private readonly IRegionManager _regionManager;
 
         [ImportingConstructor]
-        public MainWindow(IEventAggregator eventAggregator)
+        public MainWindow(IEventAggregator eventAggregator, IRegionManager regionManager)
         {
+            _regionManager = regionManager;
+
             InitializeComponent();
-            eventAggregator.GetEvent<ExitGameEvent>().Subscribe(ExitGame);
+            eventAggregator.GetEvent<ExitGameEvent>().Subscribe((i) => Close());
+
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri("Airline", UriKind.Relative));
         }
 
         [Import]
@@ -33,22 +41,6 @@ namespace AirManager.Views
         {
             get { return DataContext as MainWindowViewModel; }
             set { DataContext = value; }
-        }
-
-        public void OnImportsSatisfied()
-        {
-            ModuleManager.LoadModuleCompleted += (s, e) =>
-            {
-                if (e.ModuleInfo.ModuleName == "MenuModule")
-                {
-                    RegionManager.RequestNavigate(RegionNames.MainRegion, new Uri("Loading", UriKind.Relative));
-                }
-            };
-        }
-
-        private void ExitGame(object obj)
-        {
-            Close();
         }
     }
 }
