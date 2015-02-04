@@ -6,9 +6,6 @@
       <Component Id="EntityFramework" Guid="fac3445d-cf87-4ad1-85ee-7a1ea6d075b9">
         <File Source="$(var.AirManager.TargetDir)EntityFramework.dll" KeyPath="yes" />
       </Component>
-      <Component Id="EntityFrameworkSeeder" Guid="473015e0-74b3-494a-b774-40c6c7953e7f">
-        <File Source="$(var.AirManager.TargetDir)EntityFramework.Seeder.EF6.dll" KeyPath="yes" />
-      </Component>
       <Component Id="EntityFrameworkSqlServer" Guid="2aecc0c6-4371-49c3-aa95-9f6547768370">
         <File Source="$(var.AirManager.TargetDir)EntityFramework.SqlServer.dll" KeyPath="yes" />
       </Component>
