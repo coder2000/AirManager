@@ -52,9 +52,9 @@
       <Component Id="SqlServerCe" Guid="8470b073-9fb6-4b72-81bb-fb9347a7273c" Directory="INSTALLFOLDER">
         <File Source="$(var.AirManager.TargetDir)System.Data.SqlServerCe.dll" KeyPath="yes" />
       </Component>
-      <Component Id="SqlServerCeEntity" Guid="bcc6cc64-f87a-4f32-bac7-0363cc2acc1a" Directory="INSTALLFOLDER">
+      <!--<Component Id="SqlServerCeEntity" Guid="bcc6cc64-f87a-4f32-bac7-0363cc2acc1a" Directory="INSTALLFOLDER">
         <File Source="$(var.AirManager.TargetDir)System.Data.SqlServerCe.Entity.dll" KeyPath="yes" />
-      </Component>
+      </Component>-->
     </ComponentGroup>
 	</Fragment>
 </Wix>
