@@ -10,5 +10,7 @@ namespace AirManager.Infrastructure
     public class GameData
     {
         public Country[] Countries { get; set; }
+
+        public Airport[] Airports { get; set; }
     }
 }

@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="AirlineModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AirlineTabViewModel.cs" />
     <Compile Include="ViewModels\NewAirlineViewModel.cs" />
     <Compile Include="Views\AirlineTab.xaml.cs">
       <DependentUpon>AirlineTab.xaml</DependentUpon>

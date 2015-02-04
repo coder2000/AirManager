@@ -79,6 +79,15 @@ namespace AirManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Database.
+        /// </summary>
+        internal static string AirlineTabUpdateDb {
+            get {
+                return ResourceManager.GetString("AirlineTabUpdateDb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string MenuExit {

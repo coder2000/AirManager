@@ -17,7 +17,9 @@ namespace AirManager.Infrastructure
         public virtual DbSet<Airline> Airlines { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Player> Players { get; set; }
-        public virtual DbSet<City> Cities { get; set; } 
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Airport> Airports { get; set; }
+        public virtual DbSet<Airliner> Airliners { get; set; }
     }
 
     internal static class DatabaseConfig

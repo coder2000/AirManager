@@ -70,6 +70,10 @@ namespace AirManager.Splash.ViewModels
             await Task.Run(() => (_data.Countries =
                 (from country in _context.Countries orderby country.Name select country).ToArray()));
 
+            progress.Report(new LoadProgress {Message = "Loading Airports...", Progress = 40});
+
+            await Task.Run(() => (_data.Airports = (from airport in _context.Airports select airport).ToArray()));
+
             progress.Report(new LoadProgress {Message = "Loading Completed!", Progress = 100});
         }
 

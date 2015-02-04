@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using AirManager.Airlines.ViewModels;
 
 namespace AirManager.Airlines.Views
 {
@@ -11,6 +12,12 @@ namespace AirManager.Airlines.Views
         public AirlineTab()
         {
             InitializeComponent();
+        }
+
+        [Import]
+        public AirlineTabViewModel ViewModel
+        {
+            set { DataContext = value; }
         }
     }
 }

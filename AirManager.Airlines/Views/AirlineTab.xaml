@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fluent="urn:fluent-ribbon"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
-             mc:Ignorable="d" 
+             xmlns:viewModels="clr-namespace:AirManager.Airlines.ViewModels"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModels:AirlineTabViewModel}"
              d:DesignHeight="300" d:DesignWidth="358" Header="Airline">
     <fluent:RibbonGroupBox Header="Planes">
         <fluent:Button Header="{lex:Loc AirManager:Resources:AirlineBuyAirplane}" LargeIcon="pack://application:,,,/AirManager.Airlines;component/Resources/Icons/newplane.png" Icon="pack://application:,,,/AirManager.Airlines;component/Resources/Icons/newplane.png" />
+        <fluent:Button Header="{lex:Loc AirManager:Resources:AirlineTabUpdateDb}" Command="{Binding UpdateDbCommand}" />
     </fluent:RibbonGroupBox>
 </fluent:RibbonTabItem>

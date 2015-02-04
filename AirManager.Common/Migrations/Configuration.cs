@@ -1,9 +1,11 @@
 using System.Data.Entity.Migrations;
-using EntityFramework.Seeder;
+using System.Linq;
+using AirManager.Infrastructure.Models;
+using AirManager.Infrastructure.Seeder;
 
 namespace AirManager.Infrastructure.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<AirManagerContext>
+    public sealed class Configuration : DbMigrationsConfiguration<AirManagerContext>
     {
         public Configuration()
         {
@@ -25,8 +27,14 @@ namespace AirManager.Infrastructure.Migrations
             //    );
             //
 
-            const string csv = "AirManager.Infrastructure.SeedData.country.csv";
-            context.Countries.SeedFromResource(csv, c => c.Id);
+            const string countries = "AirManager.Infrastructure.SeedData.country.csv";
+            context.Countries.SeedFromResource(countries, c => c.Id);
+
+            context.SaveChanges();
+
+            const string airports = "AirManager.Infrastructure.SeedData.airports-canada.csv";
+            context.Airports.SeedFromResource(airports, a => a.Id, new CsvColumnMapping<Airport>("CountryId",
+                (airport, countryId) => { airport.Country = context.Countries.Single(c => c.Id == (string) countryId); }));
         }
     }
 }
