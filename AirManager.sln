@@ -13,13 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Infrastructure.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Airlines.Tests", "AirManager.Airlines.Tests\AirManager.Airlines.Tests.csproj", "{9EBE22BC-61AA-458D-8B70-8DE887938106}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{62B257F0-8D5E-49F6-9787-8C22FCC96256}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "AirManager.Installer", "AirManager.Installer\AirManager.Installer.wixproj", "{FB3DABCD-E019-468A-8D4A-9E73684B07AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirManager.Splash", "AirManager.Splash\AirManager.Splash.csproj", "{26548CDF-2AE9-4A05-9722-BCB8642B26C5}"

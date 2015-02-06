@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Bundle Name="AirManager.Bundle" Version="0.1.0" Manufacturer="Dieter Lunn" UpgradeCode="427cd6f9-b713-49d9-bf1a-4c645ea386e6">
+    <BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
+      <Payload SourceFile="$(var.AirManager.Boot.TargetDir)\BootstrapperCore.config"/>
+      <Payload SourceFile="$(var.AirManager.Boot.TargetDir)\GalaSoft.MvvmLight.dll"/>
+      <Payload SourceFile="$(var.AirManager.Boot.TargetPath)" />
+    </BootstrapperApplicationRef>
+
+		<Chain>
+      <PackageGroupRef Id="NetFx45Web"/>
+      <MsiPackage Id="AirManagerInstaller" SourceFile="$(var.AirManager.Installer.TargetPath)" />
+		</Chain>
+	</Bundle>
+</Wix>
