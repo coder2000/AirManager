@@ -30,6 +30,21 @@
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
                     <fluent:BackstageTabControl>
+                        <fluent:BackstageTabItem Header="New Airline">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Airline Name" Grid.Column="0" Grid.Row="0" />
+                                <TextBox Grid.Column="1" Grid.Row="0" />
+                                <Button Content="Create" Grid.Row="1" Grid.Column="1" />
+                            </Grid>
+                        </fluent:BackstageTabItem>
                         <fluent:Button Header="{lex:Loc AirManager:Resources:MenuExit}" Icon="pack://application:,,,/AirManager;component/Resources/Icons/exit.png" Command="{Binding ExitGameCommand}" />
                     </fluent:BackstageTabControl>
                 </fluent:Backstage>
